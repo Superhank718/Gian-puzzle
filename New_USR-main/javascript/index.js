@@ -12,47 +12,25 @@ const gc = {
     return this.wn * this.hn
   },
   img () {
-    return `img_p/pintu1.png`
+    return `./img/pintu${this.pn}.jpg`
   }
 }
-//wn、hn是拼圖切割的要幾格的意思
 
 const mounted = function () {
   initGrids()
   shuffleGrids()
   gridClick()
 }
+
 mounted()
 
 
-
 function gridStyle (n, wn, hn) {
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-
-    let gm = parseFloat($('.main').css('padding')) / 2
-    let ww = parseFloat($('.wrap').css('width')) 
-    let wh = parseFloat($('.wrap').css('height')) 
-    let gw = (ww - gm * (wn - 1)) / wn /1.1
-    let gh = (wh - gm * (hn - 1)) / hn / 10
-    let gl = (gw + gm) * (n % wn)
-    let gt = (gh + gm) * Math.floor(n / wn)
-    let style = {
-    width: gw + 'px',
-    height: gh + 'px',
-    left: gl + 'px',
-    top: gt + 'px',
-    background: `url(${gc.img()})`,
-    backgroundSize: `${gw * wn}px ${gh * hn}px`
-  }
-    return { style, n, pos: `-${gw * (n % wn)}px -${gh * Math.floor(n / wn)}px` }
-
-}else{
-
   let gm = parseFloat($('.main').css('padding')) / 2
-  let ww = parseFloat($('.wrap').css('width')) 
-  let wh = parseFloat($('.wrap').css('height')) 
-  let gw = (ww - gm * (wn - 1)) / wn / 1.1
-  let gh = (wh - gm * (hn - 1)) / hn * 0.33
+  let ww = parseFloat($('.wrap').css('width'))
+  let wh = parseFloat($('.wrap').css('height'))
+  let gw = (ww - gm * (wn - 1)) / wn
+  let gh = (wh - gm * (hn - 1)) / hn
   let gl = (gw + gm) * (n % wn)
   let gt = (gh + gm) * Math.floor(n / wn)
   let style = {
@@ -63,11 +41,7 @@ function gridStyle (n, wn, hn) {
     background: `url(${gc.img()})`,
     backgroundSize: `${gw * wn}px ${gh * hn}px`
   }
-  
-    return { style, n, pos: `-${gw * (n % wn)}px -${gh * Math.floor(n / wn)}px` }
-}
-
-
+  return { style, n, pos: `-${gw * (n % wn)}px -${gh * Math.floor(n / wn)}px` }
 }
 
 function initGrids () {

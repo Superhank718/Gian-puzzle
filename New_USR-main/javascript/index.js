@@ -12,7 +12,7 @@ const gc = {
     return this.wn * this.hn
   },
   img () {
-    return `./img/pintu${this.pn}.jpg`
+    return `img_p/pintu1.png`
   }
 }
 

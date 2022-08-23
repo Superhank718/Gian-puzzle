@@ -180,6 +180,14 @@ body{
     justify-content: end;
     
 }
+.PuzzlePageStyle{
+    width: 100%;
+    height:100%;
+
+
+}
+
+
 .clue{
     width: 100px;
     height: 100px;

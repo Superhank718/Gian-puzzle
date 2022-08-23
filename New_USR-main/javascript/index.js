@@ -32,7 +32,7 @@ function gridStyle (n, wn, hn) {
     let gm = parseFloat($('.main').css('padding')) / 2
     let ww = parseFloat($('.wrap').css('width')) 
     let wh = parseFloat($('.wrap').css('height')) 
-    let gw = document.documentElement.scrollWidth
+    let gw = screen.width
     let gh = gw
     let gl = (gw + gm) * (n % wn)
     let gt = (gh + gm) * Math.floor(n / wn)
